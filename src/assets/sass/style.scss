@@ -1,0 +1,1270 @@
+@charset "utf-8";
+
+// ========= ブレイクポイント =========
+$breakpoints: (
+    'sm': 'screen and (max-width: 767px)',
+    'md': 'screen and (min-width: 768px)',
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+// ========= font-color =========
+$main-font-color: #000;
+$key-color: #1F4C69;
+
+// =========== CSS ===========
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP:wght@600&display=swap');
+body {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    line-height: 1.666;
+    color: $main-font-color;
+    background: url(../image/bg-01.png);
+
+    @include mq(sm) {
+        font-size: 14px;
+    }
+
+    .sans-text {
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    background: $key-color;
+    padding: 15px 0;
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+
+    @include mq(sm) {
+        font-size: 28px;
+        line-height: 1.8;
+    }
+
+    span {
+        font-size: 20px;
+
+        @include mq(sm) {
+            font-size: 18px;
+        }
+    }
+}
+
+// =========== ヘッダー ===========
+.header {
+    width: 100%;
+    height: 77px;
+    background: $key-color;
+
+    @include mq(sm) {
+        height: 100%;
+    }
+
+    .header-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 120px;
+        padding-right: 66px;
+
+        @include mq(sm) {
+            padding: 15px 10px 15px;
+        }
+
+
+        .header-logo {
+
+            @include mq(sm) {
+                text-align: center;
+            }
+            
+            a {
+                color: #fff;
+                display: inline-block;
+                width: 143px;
+                font-size: 20px;
+            }
+
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+
+            @include mq(sm) {
+                flex-direction: column;
+            }
+
+            .header-content-btn {
+                @include mq(sm) {
+                    text-align: center;
+                    height: 30px;
+                    width: 145px;
+                }
+
+                a {
+                    display: inline-block;
+                    text-align: left;
+                    width: 177px;
+                    padding: 7px 15px;
+                    background: url(../image/bg-02.png) center center / cover;
+                    border-radius: 10px;
+                    font-size: 19px;
+                    color: $key-color;
+                    position: relative;
+                    transition: all 0.3s;
+
+                    @include mq(sm) {
+                        width: 100%;
+                        font-size: 16px;
+                        padding: 2px 13px;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        top: 24px;
+                        right: 10px;
+                        content: "";
+                        width: 26px;
+                        height: 2px;
+                        background: $key-color;
+
+                        @include mq(sm) {
+                            top: 16px;
+                            width: 16px;
+                        }
+                    }
+
+                    &::after {
+                        position: absolute;
+                        top: 20px;
+                        right: 9px;
+                        transform: rotate(40deg);
+                        content: "";
+                        width: 13px;
+                        height: 2px;
+                        background: $key-color;
+
+                        @include mq(sm) {
+                            top: 13px;
+                            width: 10px;
+                        }
+                    }
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+            .header-text {
+                margin-left: 14px;
+                font-size: 15px;
+                color: #fff;
+
+                @include mq(sm) {
+                    text-align: center;
+                    margin-left: 0;
+                    margin-top: 15px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+// =========== /ヘッダー ===========
+
+// =========== トップ ===========
+.top {
+    max-width: 2000px;
+    margin: 40px auto 0;
+
+    @include mq(sm) {
+        margin-top: 20px;
+    }
+
+    .top-inner {
+
+        .top-img {
+            position: relative;
+            width: 76%;
+            margin: 0 auto;
+
+            @include mq(sm) {
+                width: calc(100% - 40px);
+            }
+    
+            .img-wrap {
+                border-radius: 23px;
+                padding-right: 14.45vw;
+
+                @include mq(sm) {
+                    padding-right: 0px;
+                }
+            }
+
+            .top-text {
+                display: flex;
+                position: absolute;
+                top: 2.64vw;
+                right: 0;
+    
+                @include mq(sm) {
+                    top: 10px;
+                    right: -20px;
+                }
+        
+                .top-text-inner {
+                    writing-mode: vertical-rl;
+                    line-height: 1.177;
+                    color: $key-color;
+                    margin-right: 13px;
+        
+                    &:last-child {
+                        margin-right: 0;
+                    }
+    
+                    @include mq(sm) {
+                        margin-right: 8px;
+                    }
+
+                    span {
+                        font-size: clamp(20px, 3.5vw, 45px);
+                        line-height: 1.177;
+                        display: inline-block;
+                        padding: 0.98vw 2.857vw;
+                        background-color: #fff;
+
+                        @include mq(sm) {
+                            padding: 10px 15px 10px;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .top-illust {
+            position: absolute;
+            bottom: -60px;
+            left: -25px;
+            width: 27.4%;
+
+            @include mq(sm) {
+                left: -10px;
+                bottom: -20px;
+            }
+        }
+    }
+
+    .top-title {
+        margin-top: 10px;
+        margin-right: 10.95vw;
+        text-align: right;
+        font-size: 25px;
+        color: $key-color;
+
+        @include mq(sm) {
+            font-size: 18px;
+            margin-right: 20px;
+        }
+    }
+}
+// =========== /トップ ===========
+
+// =========== アバウト ===========
+.about {
+    margin-top: 44px;
+    background: url(../image/about-bg.png) center center / cover;
+    position: relative;
+    color: #fff;
+    padding: 43px 0 45px;
+    z-index: 0;
+
+    @include mq(sm) {
+        margin-top: 30px;
+    }
+
+     .about-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: $key-color;
+        opacity: 0.59;
+        z-index: -1;
+    }
+
+    .about-title {
+        font-size: 27px;
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include mq(sm) {
+            font-size: 17px;
+        }
+    }
+
+    .about-text {
+        font-size: 16px;
+        line-height: 1.875;
+        text-align: center;
+
+        @include mq(sm) {
+            font-size: 11px;
+        }
+    }
+}
+// =========== /アバウト ===========
+
+// =========== メッセージ ===========
+.message {
+    margin-top: 55px;
+
+    .message-inner {
+        position: relative;
+        width: calc(100% - 146px);
+        margin: 0 auto;
+        border-top: 2px solid #42655F;
+        border-bottom: 2px solid #42655F;
+        padding: 42px 0 23px;
+
+        @include mq(sm) {
+            width: 100%;
+            padding: 40px 20px 23px;
+        }
+
+        .message-title {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 593px;
+            text-align: center;
+            font-size: 20px;
+            padding: 9px 0;
+            color: #fff;
+            background: #42655F;
+
+            @include mq(sm) {
+                top: -22px;
+                width: 90%;
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+
+        .message-text {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 24px;
+
+            @include mq(sm) {
+                font-size: 13px;
+            }
+        }
+
+        .message-list {
+            display: flex;
+            justify-content: center;
+
+            @include mq(sm) {
+                margin-bottom: 10px;
+            }
+
+            ul {
+                margin-right: 20px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                li {
+                    line-height: 1.8;
+
+                    @include mq(sm) {
+                        line-height: 1.5;
+                        margin-bottom: 10px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .moer {
+            text-align: right;
+            padding-right: 96px;
+
+            @include mq(sm) {
+                padding: 0;
+            }
+
+            a {
+                text-align: left;
+                display: inline-block;
+                width: 166px;
+                height: 25px;
+                color: #42655F;
+                position: relative;
+
+                @include mq(sm) {
+                    width: 140px;
+                }
+
+                &::before {
+                    position: absolute;
+                    bottom: -7px;
+                    right: 0px;
+                    content: "";
+                    width: 67px;
+                    height: 2px;
+                    background: $key-color;
+                    transition: all 0.2s;
+
+                    @include mq(sm) {
+                        bottom: -5px;
+                    }
+                }
+
+                &::after {
+                    position: absolute;
+                    bottom: -1px;
+                    right: -1px;
+                    transform: rotate(30deg);
+                    content: "";
+                    width: 25px;
+                    height: 2px;
+                    background: $key-color;
+
+                    @include mq(sm) {
+                        bottom: 1px;
+                    }
+                }
+
+                &:hover {
+                    &::before {
+                        width: 170px;
+                    }
+                }
+            }
+        }
+    }
+}
+// =========== /メッセージ ===========
+
+// =========== ワーケーション ===========
+.work {
+    margin-top: 23px;
+
+    .section-title {
+        margin-bottom: 30px;
+
+        span {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: "ワケ";
+                top: 25px;
+                right: 140px;
+                font-size: 15px;
+
+                @include mq(sm) {
+                    top: 21px;
+                    right: 123px;
+                }
+            }
+        }
+    }
+
+    .works-item {
+        display: flex;
+        position: relative;
+
+        @include mq(sm) {
+            flex-direction: column;
+        }
+
+        &:nth-of-type(1) {
+            margin-bottom: 44px;
+
+            @include mq(sm) {
+                margin-bottom: 30px;
+            }
+        }
+
+        &:nth-of-type(2) {
+            margin-bottom: 49px;
+
+            @include mq(sm) {
+                margin-bottom: 30px;
+            }
+
+            .works-item-title {
+                left: 0;
+                right: auto;
+                font-size: clamp(17px, 3vw, 30px);
+            }
+
+            .works-img {
+                order: 1;
+                margin-right: 0;
+                margin-left: 15px;
+
+                @include mq(sm) {
+                    order: 0;
+                    margin-left: 0;
+                }
+            }
+
+            .works-text-warap {
+                text-align: right;
+
+                @include mq(sm) {
+                    text-align: left;
+                }
+
+                .works-sub-title {
+                    margin-top: 95px;
+
+                    @include mq(sm) {
+                        top: 50px;
+                    }
+                }
+
+                .works-number {
+
+                    &::before {
+                        left: auto;
+                        right: 0;
+                    } 
+                }
+            }
+        }
+
+        &:nth-of-type(3) {
+
+            .works-item-title {
+                font-size: clamp(18px, 3.5vw, 35px);
+            }
+
+            .works-text-warap {
+
+                .works-sub-title {
+                    margin-top: 105px;
+
+                    @include mq(sm) {
+                        top: 40px;
+                    }
+                }
+            }
+        }
+
+        .works-item-title {
+            position: absolute;
+            color: $key-color;
+            background: #fff;
+            padding: 10px 24px;
+            font-size: clamp(18px, 3.5vw, 40px);
+            top: 88px;
+            right: 0;
+
+            @include mq(sm) {
+                top: 75px;
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+            }
+
+            &::before {
+                position: absolute;
+                content: "";
+                top: -17px;
+                left: -33px;
+                width: 100%;
+                height: 100%;
+                background: url(../image/work-title.png) $key-color;
+                z-index: -1;
+
+                @include mq(sm) {
+                    left: -15px;
+                    top: -15px;
+                }
+            }
+        }
+
+        .works-img {
+            width: 58.519%;
+            margin-right: 15px;
+            position: relative;
+            z-index: -2;
+
+            @include mq(sm) {
+                margin-top: 185px;
+                width: 100%;
+                margin-right: 0;
+            }
+
+            img {
+                height: auto;
+            }
+        }
+
+        .works-text-warap {
+            width: 40%;
+
+            @include mq(sm) {
+                width: 100%;
+            }
+
+            .works-number {
+                font-size: 46px;
+                position: relative;
+
+                @include mq(sm) {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-size: 40px;
+                }
+    
+                &::before {
+                    position: absolute;
+                    content: "Point";
+                    top: -10px;
+                    left: 0px;
+                    font-size: 19px;
+                }
+            }
+
+            .works-sub-title {
+                margin-top: 110px;
+                margin-bottom: 10px;
+                font-size: 20px;
+                color: $key-color;
+                text-align: right;
+
+                @include mq(sm) {
+                    position: absolute;
+                    top: 35px;
+                    right: 0;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    // =========== コメント ===========
+    .comment {
+        margin-top: 60px;
+
+        .comment-title {
+            width: 640px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 30px;
+            position: relative;
+            white-space: nowrap;
+
+            @include mq(sm) {
+                width: 80%;
+                font-size: 19px;
+                padding: 0 20px;
+            }
+
+            br {
+                display: none;
+
+                @include mq(sm) {
+                    display: block;
+                }
+            }
+
+            span {
+                font-size: 40px;
+                color: #B82F0C;
+
+                @include mq(sm) {
+                    font-size: 30px;
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 10px;
+                width: 2px;
+                height: 60px;
+                background: #707070;
+                transform: rotate(-35deg);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 10px;
+                width: 2px;
+                height: 60px;
+                background: #707070;
+                transform: rotate(35deg);
+            }
+        }
+
+        .comment-item-wrap {
+            margin-top: 20px;
+
+            @include mq(md) {
+                display: flex;
+            }
+
+            .comment-item {
+                width: 31.5%;
+                margin-right: 30px;
+                background: url(../image/bg-02.png) center center / cover;
+                padding: 42px 18px 70px;
+                border-radius: 61px;
+                position: relative;
+
+                @include mq(sm) {
+                    width: 100%;
+                    margin: 0 auto 100px;
+                }
+
+                &::after {
+                    position: absolute;
+                    bottom: -70px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    content: "";
+                    width: 80px;
+                    height: 83px;
+                    background: url(../image/comment-bg.png);
+                }
+
+                &:last-child {
+                    @include mq(md) {
+                        margin-right: 0;
+                    }
+                }
+
+                .comment-img {
+                    max-width: 200px;
+                    margin: 0 auto 40px;
+
+                    img {
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+    // =========== /コメント ===========
+}
+// =========== /ワーケーション ===========
+
+// =========== プラン ===========
+.plan {
+    margin-top: 140px;
+    background: #fff;
+
+    .section-title {
+        line-height: 130px;
+    }
+
+    .plan-item-wrap {
+        margin-top: 33px;
+
+        @include mq(md) {
+            display: flex;
+        }
+
+        .plan-item {
+            width: 32%;
+            margin-right: 20px;
+            text-align: center;
+
+            @include mq(sm) {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 50px;
+            }
+
+            &:last-child {
+                @include mq(md) {
+                    margin-right: 0;
+                }
+            }
+
+            .plan-title {
+                margin-bottom: 24px;
+                font-size: clamp(18px, 2.4vw, 25px);
+
+                @include mq(sm) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .plan-img {
+                margin-bottom: 22px;
+                max-width: 345px;
+
+                @include mq(sm) {
+                    max-width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                img {
+                    height: auto;
+                }
+            }
+
+            .plan-text {
+                font-size: 22px;
+                margin-bottom: 28px;
+
+                @include mq(sm) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .plan-money {
+                font-size: 22px;
+                margin-bottom: 22px;
+                
+                @include mq(sm) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .plan-btn {
+
+                a {
+                    display: inline-block;
+                    width: 78%;
+                    height: 65px;
+                    line-height: 65px;
+                    font-size: 20px;
+                    color: #fff;
+                    background: #8F1602;
+                    position: relative;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        top: 50%;
+                        right: 25px;
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        transform: translateY(-50%) rotate(-45deg);
+                    }
+
+                    &::after {
+                        position: absolute;
+                        top: 50%;
+                        right: 31px;
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        transform: translateY(-50%) rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .plan-contact {
+        text-align: center;
+        margin-top: 25px;
+
+        .plan-contact-text {
+            font-size: 22px;
+            margin-bottom: 10px;
+
+            @include mq(sm) {
+                margin-bottom: 10px;
+            }
+        }
+
+        .contact-wrap {
+            @include mq(md) {
+                display: flex;
+                justify-content: center;
+            }
+
+            .contact-tel {
+                font-size: 22px;
+                margin-right: 20px;
+
+                @include mq(sm) {
+                    margin-right: 0;
+                    font-weight: bold;
+                }
+            }
+
+            .contact-time {
+                padding-top: 2px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+}
+// =========== /プラン ===========
+
+// =========== スポット ===========
+.spot {
+    padding: 57px 19px 57px 34px;
+    background: url(../image/spot-bg.png);
+    background-position: center;
+    background-size: cover;
+
+    @include mq(sm) {
+        padding: 57px 0;
+        margin-bottom: 190px;
+        background-size: 350%;
+    }
+
+    .spot-inner {
+        max-width: 1227px;
+        margin: 0 auto;
+
+        .spot-item-wrap {
+            padding-top: 34px;
+            padding-left: 150px;
+            display: flex;
+            justify-content: end;
+            position: relative;
+
+            @include mq(sm) {
+                flex-direction: column;
+                padding-left: 0;
+            }
+
+            .spot-title-wrap {
+                position: absolute;
+                display: flex;
+                top: 0;
+                left: 0;
+        
+                .spot-title {
+                    writing-mode: vertical-rl;
+                    margin-right: 10px;
+                    z-index: 2;
+    
+                    span {
+                        background: #fff;
+                        color: $key-color;
+                        font-size: clamp(25px, 3.5vw, 45px);
+                        display: inline-block;
+                        padding: 9px 15px 30px;
+    
+                        @include mq(sm) {
+                            padding: 9px 15px;
+                        }
+                    }
+        
+                    &:last-child {
+                        margin-right: 0;
+    
+                        span {
+                            font-size: clamp(25px, 2.4vw, 35px);
+                            padding: 20px;
+    
+                            @include mq(sm) {
+                                padding: 9px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .spot-item {
+                width: 30.827%;
+                margin-right: 16px;
+
+                @include mq(sm) {
+                    width:70%;
+                    margin: 0 auto 50px;
+                }
+
+                &:first-of-type {
+                    @include mq(sm) {
+                        width: 64%;
+                        margin-left: auto;
+                        margin-right: 20px;
+                        margin-bottom: 50px;
+
+                        .spot-item-title {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                &:last-child {                                          
+                    margin-right: 0;
+
+                    @include mq(sm) {
+                        margin-bottom: 0;
+                        margin-right: auto;
+                    }
+                }
+
+                .spot-item-title {
+                    text-align: center;
+                    font-size: clamp(18px, 2vw, 24px);
+                    margin: 0 auto 20px;
+                    width: 88%;
+
+                    @include mq(sm) {
+                        margin-bottom: 15px;
+                    }
+                }
+
+                .spot-img {
+                    width: 100%;
+                    margin-right: 18px;
+
+                    img {
+                        height: auto;
+                    }
+                }
+
+                .spot-name {
+                    text-align: center;
+                    font-size: clamp(25px, 3vw, 35px);
+                    margin-bottom: 20px;
+
+                    @include mq(sm) {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .spot-text {
+                    width: 80%;
+                    margin: 0 auto;
+
+                    @include mq(sm) {
+                        width: 100%;
+                    }
+                }
+
+                .stpo-time {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    img {
+                        width: 40px;
+                        height: 35px;
+                        margin-right: 15px;
+                    }
+
+                    .time {
+                        font-size: 17px;
+                        padding-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+// =========== /スポット ===========
+
+// =========== アクセス ===========
+.access {
+    background: url(../image/access.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 197px 0;
+    position: relative;
+    z-index: 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.6;
+        z-index: -1;
+    }
+
+    @include mq(sm) {
+        padding: 0;
+        height: 250px;
+        background-position: right;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: -190px;
+            left: 0;
+            width: 100%;
+            height: 190px;
+            background: $key-color;
+        }
+    }
+
+    .access-text {
+        @include mq(sm) {
+            position: absolute;
+            top: -165px;
+            left: 20px;
+        }
+
+        .access-title {
+            font-size: 30px;
+            padding-bottom: 15px;
+            position: relative;
+    
+            @include mq(sm) {
+                font-size: 20px;
+            }
+    
+            &::after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                content: "";
+                width: 325px;
+                height: 3px;
+                background: #fff;
+    
+                @include mq(sm) {
+                    width: 220px;
+                }
+            }
+        }
+    }
+
+    .access-list {
+        font-size: 15px;
+        margin-top: 40px;
+
+        @include mq(sm) {
+            font-size: 10px;
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+}
+// =========== /アクセス ===========
+
+// =========== フッター ===========
+.footer {
+    background: $key-color;
+    color: #fff;
+    padding: 25px 0 43px;
+    text-align: center;
+
+    .footer-sns {
+        width: 220px;
+        margin: 0 auto;
+        padding: 5px 0;
+        font-size: 20px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+
+        @include mq(sm) {
+            font-size: 17px;
+        }
+    }
+
+    .sns-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 34px;
+
+        @include mq(sm) {
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+
+        .sns-icon {
+            margin-right: 26px;
+            width: 74px;
+            height: 74px;
+
+            @include mq(sm) {
+                width: 50px;
+                height: 50px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .footer-text {
+        font-size: 17px;
+        margin-bottom: 25px;
+
+        @include mq(sm) {
+            font-size: 15px;
+        }
+    }
+
+    .footer-data, .footer-contact, .footer-fax {
+        font-size: 13px;
+        margin-bottom: 10px;
+
+        @include mq(sm) {
+            font-size: 10px;
+        }
+    }
+
+    .footer-contact {
+        margin-bottom: 10px;
+    }
+}
+// =========== /フッター ===========
+
+
+
+
